@@ -16,8 +16,20 @@
 
 ### Dependencias utilizadas
 
-* Nodemon
+* [Nodemon](https://www.npmjs.com/package/nodemon)
 
 <code style="background-color: #151718; color: #e6cd69;padding:10px;border-radius: 9px;">
 <span style="color: #9bc554;">npm install</span> --save-dev <span style="color: #55b5db;">nodemon</span>
+</code>
+
+* [Yargs](https://yargs.js.org/)
+
+<code style="background-color: #151718; color: #e6cd69;padding:10px;border-radius: 9px;">
+<span style="color: #9bc554;">npm i</span> <span style="color: #55b5db;">yargs</span>
+</code>
+
+* [Colors](https://www.npmjs.com/package/colors)
+
+<code style="background-color: #151718; color: #e6cd69;padding:10px;border-radius: 9px;">
+<span style="color: #9bc554;">npm install</span> <span style="color: #55b5db;">colors</span>
 </code>
