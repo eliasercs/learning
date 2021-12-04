@@ -1,0 +1,19 @@
+{
+  "name": "tutorial",
+  "version": "1.0.5",
+  "description": "Command line interface application",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js",
+    "start-dev": "nodemon ./src/index.js"
+  },
+  "keywords": [],
+  "author": "Eliaser Concha",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.2.0",
+    "uuid": "^8.3.2"
+  }
+}
