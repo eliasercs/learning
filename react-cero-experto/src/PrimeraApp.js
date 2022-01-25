@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { useEffect } from 'react/cjs/react.production.min';
+
+const updateOnlineStatus = (event) => {
+    alert(navigator.onLine ? "Conectado" : "Desconectado")
+}
 
 const PrimeraApp = ({name}) => {
+
+    window.addEventListener("online", updateOnlineStatus)
+    window.addEventListener("offline", updateOnlineStatus)
+
   // Los props o properties son propiedades de un JSON.
   //console.log(props)
 
