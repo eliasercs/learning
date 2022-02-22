@@ -1,0 +1,49 @@
+{% extends "base_template.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %} 
+<div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label }}
+            {{ form.name }}<br />
+            {% for error in form.name.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.lastname.label }}
+            {{ form.lastname }}<br />
+            {% for error in form.lastname.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.username.label }}
+            {{ form.username }}<br />
+            {% for error in form.username.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.email.label }}
+            {{ form.email}}<br />
+            {% for error in form.email.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.password.label }}
+            {{ form.password }} <br />
+            {% for error in form.password.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+</div>
+{% endblock %}

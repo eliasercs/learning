@@ -1,54 +1,39 @@
 from utils.db import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
-class User:
+"""
+id
+name
+lastname
+username
+email
+password
+registration_date
+"""
 
-    user_query = (
-        "INSERT INTO users "
-        "(name,lastname,username,email,password,registration_date) "
-        "VALUES(%(name)s,%(lastname)s,%(username)s,%(email)s,%(password)s,%(registration_date)s)"
-    )
 
-    user_data = {
-        "name": "",
-        "lastname": "",
-        "username": "",
-        "email": "",
-        "password": "",
-        "registration_date": ""
-    }
+class User(UserMixin):
 
-    search_user_query = ("SELECT * FROM users WHERE username=%s")
+    is_authenticated = False
+    is_active = True
+    is_anonymous = False
 
-    def __init__(self,**args) -> None:
-        self.cursor = db.cursor()
-        if len(args)==0:
-            self.user_data["name"] = ""
-            self.user_data["lastname"] = ""
-            self.user_data["username"] = ""
-            self.user_data["email"] = ""
-            self.user_data["password"] = ""
-            self.user_data["registration_date"] = ""
-        elif len(args)==6:
-            self.user_data["name"] = args["name"]
-            self.user_data["lastname"] = args["lastname"]
-            self.user_data["username"] = args["username"]
-            self.user_data["email"] = args["email"]
-            self.user_data["password"] = self.hash_password(args["password"])
-            self.user_data["registration_date"] = args["registration_date"]
 
-    def add_user(self):
-        self.cursor.execute(self.user_query,self.user_data)
-        db.commit()
-        self.cursor.close()
+    def __init__(self, id, name, lastname, username, email, password, is_admin=False) -> None:
+        self.id = id
+        self.name = name
+        self.lastname = lastname
+        self.username = username
+        self.email = email
+        self.password = generate_password_hash(password)
+        self.is_admin = is_admin
 
-    def search_user(self,username):
-        self.cursor.execute(self.search_user_query,(username,))
-        result = self.cursor.fetchall()
-        return len(result)
+    def set_password(self,password):
+        self.password = generate_password_hash(password)
 
-    def hash_password(self,password):
-        return generate_password_hash(password)
+    def check_password(self,password):
+        return check_password_hash(self.password, password)
 
-    def verify_password(self,password):
-        return check_password_hash(self.user_data["password"],password)
+    def __repr__(self) -> str:
+        return "<User {}>".format(self.username)
