@@ -6,3 +6,4 @@
 #### Apuntes
 * [Análisis de Negocios para Ciencia de Datos (Extraído de Platzi)](./content/analisis-de-negocios-platzi/README.md)
 * [Manipulación y Transformación de Datos con Pandas y Numpy (Extraído de Platzi)](./content/manipulacion-transformacion-datos-platzi/README.md)
+* [Visualización de Datos con Matplotlib y Seaborn (Extraído de Platzi)](./content/matplotlib-seaborn-platzi/README.md)
